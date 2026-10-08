@@ -82,6 +82,13 @@
         .tour-card.tour-next .tour-num { background: var(--gradient); color: #fff; } 
         .tour-card.tour-next .tour-main { font-size: 2.4rem; min-height: 50px; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; } 
         .tour-card.tour-next .tour-sub { color: var(--text); font-size: 0.85rem; } 
+        .tour-card.tour-past { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; text-align: left; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.08); background: rgba(15,15,26,0.35); }
+        .tour-card.tour-past:hover { transform: none; border-color: rgba(255,255,255,0.14); }
+        .tour-card.tour-past .tour-num { margin-bottom: 0; flex-shrink: 0; }
+        .tour-past-info { flex: 1; min-width: 0; }
+        .tour-card.tour-past .tour-main { font-size: 1.15rem; min-height: 0; justify-content: flex-start; color: var(--text); }
+        .tour-card.tour-past .tour-sub { margin-top: 3px; }
+        .tour-done { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green); background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.35); padding: 4px 12px; border-radius: 50px; }
         .tour-flag { position: absolute; top: 10px; right: 10px; background: rgba(230,57,70,0.15); border: 1px solid rgba(230,57,70,0.4); color: var(--primary); font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; } 
         .dates-list { list-style: none; } 
         .dates-list li { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; } 
@@ -260,6 +267,8 @@
             .tour-flag { position: static; display: table; margin: 0 auto 8px; } 
             .tour-card { padding: 14px 10px; } 
             .tour-card.tour-next { grid-column: span 2; } 
+            .tour-card.tour-past { flex-wrap: wrap; gap: 8px 12px; padding: 12px 14px; } 
+            .tour-past-info { flex-basis: 100%; order: 3; } 
             .tour-card.tour-next .tour-main { font-size: 1.9rem; } 
             .prize-card.featured { flex-direction: column; padding: 24px 20px; } 
             .prizes-grid { grid-template-columns: 1fr !important; } 
@@ -347,14 +356,17 @@
             <div class="schedule-block"> 
                 <h3>Даты соревнований</h3> 
                 <div class="tour-grid">
+                    <div class="tour-card tour-past"> 
+                        <div class="tour-num">Соревнование №1</div> 
+                        <div class="tour-past-info"> 
+                            <div class="tour-main">4 октября 2026</div> 
+                            <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
+                        </div> 
+                        <span class="tour-done">✓ Прошли</span> 
+                    </div> 
                     <div class="tour-card tour-next"> 
                         <span class="tour-flag">Ближайший</span> 
-                        <div class="tour-num">Соревнование №1</div> 
-                        <div class="tour-main">4 Октября 2026</div> 
-                        <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
-                    </div> 
-                    <div class="tour-card"> 
-                        <div class="tour-num">Соревнования №2</div> 
+                        <div class="tour-num">Соревнование №2</div> 
                         <div class="tour-main">1 ноября 2026</div> 
                         <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
                     </div> 
@@ -416,7 +428,7 @@
                 <h3>Как подать заявку?</h3> 
                 <p>Заполните пошаговую анкету личных и спортивных данных ниже для отправки организаторам.</p> 
                 <ul class="reg-requirements"> 
-                    <li><span class="check">✓</span> Возраст от 9 до 18 лет</li>
+                    <li><span class="check">✓</span> Возраст от 9 до 26 лет</li>
                     <li><span class="check">✓</span> Медицинская справка и МРТ</li> 
                     <li><span class="check">✓</span> Страховка</li> 
                     <li><span class="check">✓</span> Документ, удостоверяющий личность</li> 
@@ -436,7 +448,7 @@
                         <div class="form-group"><label>Фамилия <span class="required">*</span></label><input type="text" class="form-control" id="lastName" placeholder="Иванов"></div> 
                         <div class="form-group"><label>Имя <span class="required">*</span></label><input type="text" class="form-control" id="firstName" placeholder="Александр"></div> 
                         <div class="form-group"><label>Отчество</label><input type="text" class="form-control" id="middleName" placeholder="Сергеевич"></div> 
-                        <div class="form-group"><label>Дата рождения <span class="required">*</span></label><input type="date" class="form-control" id="birthDate"></div> 
+                        <div class="form-group"><label>Дата рождения <span class="required">*</span></label><input type="text" class="form-control" id="birthDate" inputmode="numeric" autocomplete="bday" maxlength="10" placeholder="23.06.2009"></div> 
                         <div class="form-group"><label>Пол <span class="required">*</span></label><select class="form-control" id="gender"><option value="">Выберите...</option><option value="male">Мужской</option><option value="female">Женский</option></select></div> 
                         <div class="form-group"><label>Телефон <span class="required">*</span></label><input type="tel" class="form-control" id="phone" placeholder="+7 (999) 123-45-67" maxlength="18" inputmode="numeric"></div> 
                     </div> 
@@ -445,7 +457,7 @@
                 <div class="form-step-content" id="step2"> 
                     <div class="form-title"><span class="step-number">2</span> Спортивная информация</div> 
                     <div class="form-row"> 
-                        <div class="form-group" style="grid-column: 1 / -1;"><label>Турнир <span class="required">*</span></label><select class="form-control" id="tournament"><option value="">Выберите турнир...</option><option value="Соревнование №1 — 4 октября 2026">Соревнование №1 — 4 октября 2026</option><option value="" disabled>Соревнование №2 — дата уточняется</option><option value="" disabled>Соревнование №3 — дата уточняется</option><option value="" disabled>Соревнование №4 — дата уточняется</option><option value="" disabled>Соревнование №5 — дата уточняется</option><option value="" disabled>Соревнование №6 — дата уточняется</option><option value="" disabled>Соревнование №7 — дата уточняется</option><option value="" disabled>Соревнование №8 — дата уточняется</option><option value="" disabled>Соревнование №9 — дата уточняется</option><option value="" disabled>Соревнование №10 — дата уточняется</option><option value="" disabled>Соревнование №11 — дата уточняется</option></select><div class="field-hint">Записаться можно только на турниры с назначенной датой</div></div> 
+                        <div class="form-group" style="grid-column: 1 / -1;"><label>Турнир <span class="required">*</span></label><select class="form-control" id="tournament"><option value="">Выберите турнир...</option><option value="" disabled>Соревнование №1 — 4 октября 2026 (прошёл)</option><option value="Соревнование №2 — 1 ноября 2026">Соревнование №2 — 1 ноября 2026</option><option value="" disabled>Соревнование №3 — дата уточняется</option><option value="" disabled>Соревнование №4 — дата уточняется</option><option value="" disabled>Соревнование №5 — дата уточняется</option><option value="" disabled>Соревнование №6 — дата уточняется</option><option value="" disabled>Соревнование №7 — дата уточняется</option><option value="" disabled>Соревнование №8 — дата уточняется</option><option value="" disabled>Соревнование №9 — дата уточняется</option><option value="" disabled>Соревнование №10 — дата уточняется</option><option value="" disabled>Соревнование №11 — дата уточняется</option></select><div class="field-hint">Регистрация открыта на соревнование №2 (1 ноября 2026). Соревнование №1 прошло, на остальные регистрация пока закрыта — даты уточняются</div></div> 
                         <div class="form-group"><label>Вес (кг) <span class="required">*</span></label><input type="number" class="form-control" id="currentWeight" placeholder="72"></div> 
                         <div class="form-group"><label>Разряд <span class="required">*</span></label><select class="form-control" id="rank"><option value="">Выберите...</option><option value="0">Без разряда</option><option value="3">3-й разряд</option><option value="2">2-й разряд</option><option value="1">1-й разряд</option><option value="cms">КМС</option></select></div> 
                         <div class="form-group"><label>Клуб <span class="required">*</span></label><input type="text" class="form-control" id="club" placeholder="СК «Боксёр»"></div> 
@@ -574,7 +586,7 @@
 </section> 
  
 <footer><div class="footer-content"><div class="footer-copy">© 2026 ЗОРКИЙ. Все права защищены.</div></div></footer> 
- 
+
 <div class="modal-overlay" id="pairsModal1">
     <div class="modal modal-wide">
         <button class="modal-close" onclick="closeModal('pairsModal1')">✕</button>
@@ -848,6 +860,7 @@
         </div>
     </div>
 </div>
+ 
 <div class="modal-overlay" id="successModal"> 
     <div class="modal"> 
         <button class="modal-close" onclick="closeModal('successModal')">✕</button> 
@@ -965,6 +978,15 @@
         document.getElementById('stepLine1')?.classList.toggle('active', currentStep>1); 
     } 
  
+    const bdInput = document.getElementById('birthDate'); 
+    if (bdInput) bdInput.addEventListener('input', () => { 
+        const d = bdInput.value.replace(/\D/g,'').slice(0,8); 
+        let out = d.slice(0,2); 
+        if (d.length>2) out += '.' + d.slice(2,4); 
+        if (d.length>4) out += '.' + d.slice(4); 
+        bdInput.value = out; 
+    }); 
+
     window.validateStep1 = () => { 
         const fields = ['lastName','firstName','birthDate','gender','phone']; 
         for (let id of fields) { 
@@ -975,9 +997,11 @@
         const phone = document.getElementById('phone').value.replace(/\D/g,''); 
         if (phone.length < 11) { window.showNotification('Ошибка','Введите корректный номер телефона','error'); return false; } 
         // Валидация даты рождения 
-        const bd = new Date(document.getElementById('birthDate').value); 
+        const m = document.getElementById('birthDate').value.trim().match(/^(\d{2})\.(\d{2})\.(\d{4})$/); 
+        const bd = m ? new Date(+m[3], +m[2]-1, +m[1]) : new Date(NaN); 
         const today = new Date(); 
-        if (isNaN(bd.getTime()) || bd > today) { window.showNotification('Ошибка','Укажите корректную дату рождения','error'); return false; } 
+        const validBd = m && bd.getDate()===+m[1] && bd.getMonth()===+m[2]-1 && bd.getFullYear()===+m[3] && +m[3]>=1900; 
+        if (!validBd || bd > today) { window.showNotification('Ошибка','Укажите корректную дату рождения','error'); return false; } 
         return true; 
     }; 
  
