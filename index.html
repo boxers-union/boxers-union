@@ -78,16 +78,21 @@
         .tour-num { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); background: rgba(244,162,97,0.1); padding: 3px 12px; border-radius: 50px; margin-bottom: 12px; } 
         .tour-main { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); line-height: 1.1; min-height: 34px; display: flex; align-items: center; justify-content: center; } 
         .tour-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.5px; } 
-        .tour-card.tour-next { grid-column: span 2; border: 1px solid transparent; background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, var(--gradient) border-box; box-shadow: 0 10px 40px rgba(230,57,70,0.2); } 
+        .tour-card.tour-next { grid-column: 1 / -1; padding: 22px 16px 18px; border: 1px solid transparent; background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, var(--gradient) border-box; box-shadow: 0 10px 40px rgba(230,57,70,0.2); } 
         .tour-card.tour-next .tour-num { background: var(--gradient); color: #fff; } 
         .tour-card.tour-next .tour-main { font-size: 2.4rem; min-height: 50px; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; } 
         .tour-card.tour-next .tour-sub { color: var(--text); font-size: 0.85rem; } 
-        .tour-card.tour-past { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; text-align: left; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.08); background: rgba(15,15,26,0.35); }
+        .tour-card.tour-past { grid-column: span 2; text-align: left; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(15,15,26,0.35); }
         .tour-card.tour-past:hover { transform: none; border-color: rgba(255,255,255,0.14); }
-        .tour-card.tour-past .tour-num { margin-bottom: 0; flex-shrink: 0; }
-        .tour-past-info { flex: 1; min-width: 0; }
-        .tour-card.tour-past .tour-main { font-size: 1.15rem; min-height: 0; justify-content: flex-start; color: var(--text); }
-        .tour-card.tour-past .tour-sub { margin-top: 3px; }
+        .tour-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+        .tour-top .tour-num { margin-bottom: 0; }
+        .tour-card.tour-past .tour-main { font-size: 1.2rem; min-height: 0; justify-content: flex-start; color: var(--text); }
+        .tour-card.tour-past .tour-sub { margin-top: 4px; }
+        .tour-reg { display: inline-block; margin-top: 12px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green); background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.35); padding: 4px 12px; border-radius: 50px; text-decoration: none; }
+        .tour-card.tour-soon { padding: 12px 10px; }
+        .tour-card.tour-soon .tour-num { font-size: 0.72rem; padding: 2px 10px; margin-bottom: 8px; }
+        .tour-card.tour-soon .tour-main { font-size: 1.1rem; min-height: 24px; }
+        .tour-card.tour-soon .tour-sub { font-size: 0.72rem; margin-top: 4px; }
         .tour-done { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green); background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.35); padding: 4px 12px; border-radius: 50px; }
         .tour-flag { position: absolute; top: 10px; right: 10px; background: rgba(230,57,70,0.15); border: 1px solid rgba(230,57,70,0.4); color: var(--primary); font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; } 
         .dates-list { list-style: none; } 
@@ -269,10 +274,21 @@
             .schedule-block { padding: 24px 16px; } 
             .tour-flag { position: static; display: table; margin: 0 auto 8px; } 
             .tour-card { padding: 14px 10px; } 
-            .tour-card.tour-next { grid-column: span 2; } 
-            .tour-card.tour-past { flex-wrap: wrap; gap: 8px 12px; padding: 12px 14px; } 
-            .tour-past-info { flex-basis: 100%; order: 3; } 
-            .tour-card.tour-next .tour-main { font-size: 1.9rem; } 
+            .tour-card.tour-past { grid-column: 1 / -1; padding: 12px 14px; } 
+            .tour-card.tour-soon { padding: 10px 8px; } 
+            .tour-reg { margin-top: 10px; } 
+            #schedule { padding-left: 14px; padding-right: 14px; } 
+            .schedule-block { padding: 20px 12px; } 
+            .tour-num { white-space: nowrap; font-size: 0.72rem; letter-spacing: 1px; padding: 3px 10px; } 
+            .tour-card.tour-past .tour-main { font-size: 1.1rem; } 
+            .tour-card.tour-past .tour-sub, .tour-card.tour-next .tour-sub { font-size: 0.74rem; } 
+            .tour-card.tour-next .tour-main { font-size: 1.7rem; } 
+            .modal-wide { padding: 22px 12px; } 
+            .modal-wide h3 { font-size: 1.15rem; padding: 0 30px; } 
+            .pairs-table { min-width: 0; } 
+            .pairs-table th, .pairs-table td { padding: 8px 6px; } 
+            .pairs-table td { font-size: 0.8rem; } 
+            .pair-club { font-size: 0.68rem; } 
             .prize-card.featured { flex-direction: column; padding: 24px 20px; } 
             .prizes-grid { grid-template-columns: 1fr !important; } 
             .prize-photo { flex: none; width: 100%; } 
@@ -371,60 +387,58 @@
                 <h3>Даты соревнований</h3> 
                 <div class="tour-grid">
                     <div class="tour-card tour-past"> 
-                        <div class="tour-num">Соревнование №1</div> 
-                        <div class="tour-past-info"> 
-                            <div class="tour-main">4 октября 2026</div> 
-                            <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
-                        </div> 
-                        <span class="tour-done">✓ Прошли</span> 
+                        <div class="tour-top"><div class="tour-num">Соревнование №1</div><span class="tour-done">✓ Прошли</span></div> 
+                        <div class="tour-main">4 октября 2026</div> 
+                        <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
                     </div> 
-                    <div class="tour-card tour-next"> 
-                        <span class="tour-flag">Ближайший</span> 
-                        <div class="tour-num">Соревнование №2</div> 
+                    <div class="tour-card tour-past"> 
+                        <div class="tour-top"><div class="tour-num">Соревнование №2</div><span class="tour-done">✓ Прошли</span></div> 
                         <div class="tour-main">1 ноября 2026</div> 
                         <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
                     </div> 
-                    <div class="tour-card"> 
-                        <div class="tour-num">Соревнования №3</div> 
-                        <div class="tour-main">29 ноября</div> 
+                    <div class="tour-card tour-next"> 
+                        <span class="tour-flag">Ближайший</span> 
+                        <div class="tour-num">Соревнование №3</div> 
+                        <div class="tour-main">29 ноября 2026</div> 
                         <div class="tour-sub">Воскресенье · БК «Зоркий», Красногорск</div> 
+                        <a class="tour-reg" data-scroll="registration" role="button" tabindex="0">Регистрация открыта →</a> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№4</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№5</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№6</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№7</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№8</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№9</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№10</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
                     </div> 
-                    <div class="tour-card"> 
+                    <div class="tour-card tour-soon"> 
                         <div class="tour-num">№11</div> 
                         <div class="tour-main">Скоро</div> 
                         <div class="tour-sub">Дата уточняется</div> 
@@ -471,7 +485,7 @@
                 <div class="form-step-content" id="step2"> 
                     <div class="form-title"><span class="step-number">2</span> Спортивная информация</div> 
                     <div class="form-row"> 
-                        <div class="form-group" style="grid-column: 1 / -1;"><label>Турнир <span class="required">*</span></label><select class="form-control" id="tournament"><option value="">Выберите турнир...</option><option value="" disabled>Соревнование №1 — 4 октября 2026 (прошёл)</option><option value="Соревнование №2 — 1 ноября 2026">Соревнование №2 — 1 ноября 2026</option><option value="" disabled>Соревнование №3 — дата уточняется</option><option value="" disabled>Соревнование №4 — дата уточняется</option><option value="" disabled>Соревнование №5 — дата уточняется</option><option value="" disabled>Соревнование №6 — дата уточняется</option><option value="" disabled>Соревнование №7 — дата уточняется</option><option value="" disabled>Соревнование №8 — дата уточняется</option><option value="" disabled>Соревнование №9 — дата уточняется</option><option value="" disabled>Соревнование №10 — дата уточняется</option><option value="" disabled>Соревнование №11 — дата уточняется</option></select><div class="field-hint">Регистрация открыта на соревнование №2 (1 ноября 2026). Соревнование №1 прошло, на остальные регистрация пока закрыта — даты уточняются</div></div> 
+                        <div class="form-group" style="grid-column: 1 / -1;"><label>Турнир <span class="required">*</span></label><select class="form-control" id="tournament"><option value="">Выберите турнир...</option><option value="" disabled>Соревнование №1 — 4 октября 2026 (прошёл)</option><option value="" disabled>Соревнование №2 — 1 ноября 2026 (прошёл)</option><option value="Соревнование №3 — 29 ноября 2026">Соревнование №3 — 29 ноября 2026</option><option value="" disabled>Соревнование №4 — дата уточняется</option><option value="" disabled>Соревнование №5 — дата уточняется</option><option value="" disabled>Соревнование №6 — дата уточняется</option><option value="" disabled>Соревнование №7 — дата уточняется</option><option value="" disabled>Соревнование №8 — дата уточняется</option><option value="" disabled>Соревнование №9 — дата уточняется</option><option value="" disabled>Соревнование №10 — дата уточняется</option><option value="" disabled>Соревнование №11 — дата уточняется</option></select><div class="field-hint">Регистрация открыта на соревнование №3 (29 ноября 2026). Соревнования №1 и №2 прошли, на остальные регистрация пока закрыта — даты уточняются</div></div> 
                         <div class="form-group"><label>Вес (кг) <span class="required">*</span></label><input type="number" class="form-control" id="currentWeight" placeholder="72"></div> 
                         <div class="form-group"><label>Разряд <span class="required">*</span></label><select class="form-control" id="rank"><option value="">Выберите...</option><option value="0">Без разряда</option><option value="3">3-й разряд</option><option value="2">2-й разряд</option><option value="1">1-й разряд</option><option value="cms">КМС</option></select></div> 
                         <div class="form-group"><label>Клуб <span class="required">*</span></label><input type="text" class="form-control" id="club" placeholder="СК «Боксёр»"></div> 
@@ -517,7 +531,7 @@
                     <div class="item-number">02</div> 
                     <div class="item-text">Соревнование №2</div> 
                 </div> 
-                <span class="stream-badge" style="background: rgba(244,162,97,0.15); color: var(--secondary)">Ожидается жеребьевка</span> 
+                <button type="button" class="btn btn-primary" style="padding:6px 16px; font-size:0.8rem;" onclick="document.getElementById('pairsModal2').classList.add('active');document.body.classList.add('modal-open')">Список пар</button> 
             </div> 
             <div class="custom-item"> 
                 <div class="item-title-block"> 
@@ -875,6 +889,304 @@
     </div>
 </div>
  
+<div class="modal-overlay" id="pairsModal2">
+    <div class="modal modal-wide">
+        <button class="modal-close" onclick="closeModal('pairsModal2')">✕</button>
+        <h3>Соревнование №2 — состав пар</h3>
+        <div class="pairs-table-wrap">
+            <table class="pairs-table">
+                <thead>
+                    <tr><th>№</th><th>Красный угол</th><th></th><th>Синий угол</th></tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td class="pair-num">01</td>
+                            <td class="pair-red">Сельдев Глеб<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Бессонов Степан<span class="pair-club">Звенигород</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">02</td>
+                            <td class="pair-red">Норматов Абубакар<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Ярковой Егор<span class="pair-club">Русич</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">03</td>
+                            <td class="pair-red">Лафта Даниель<span class="pair-club">БК Красногорский</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Ревес Федор<span class="pair-club">Клуб бокса Г. Дрозда</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">04</td>
+                            <td class="pair-red">Федоренко Родион<span class="pair-club">Кузница</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Шишов Кирилл</td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">05</td>
+                            <td class="pair-red">Григорьев Иван<span class="pair-club">БК Красногорский</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Магомедов Тимур<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">06</td>
+                            <td class="pair-red">Кахно Марк<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Клемешов Даниил<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">07</td>
+                            <td class="pair-red">Самсонов Илья<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Мамедов Алтант<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">08</td>
+                            <td class="pair-red">Пазилжанов Мухаммет<span class="pair-club">НИИССОК</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Палуэктов Платон<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">09</td>
+                            <td class="pair-red">Собиров Джамщит</td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Вахабов Ильхам<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">10</td>
+                            <td class="pair-red">Каграманов Макар</td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Ульрих Иван<span class="pair-club">Левый хук</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">11</td>
+                            <td class="pair-red">Донченко Илья<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Амиршоев Ибрагим<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">12</td>
+                            <td class="pair-red">Абалеяв Владислав<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Холиков Ато<span class="pair-club">Левый хук</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">13</td>
+                            <td class="pair-red">Мамедов Тамерлан<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Варов Илларион<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">14</td>
+                            <td class="pair-red">Свидерский Дмитрий<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Петухов Михаил<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">15</td>
+                            <td class="pair-red">Филь Кирилл<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Сериченко Максим<span class="pair-club">КР Боксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">16</td>
+                            <td class="pair-red">Вахрин Егор<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Божков Мирослав</td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">17</td>
+                            <td class="pair-red">Кудухов Казбек<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Рахматулоев Фаид<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">18</td>
+                            <td class="pair-red">Гулев Тимофей<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Камизол Файзалев<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">19</td>
+                            <td class="pair-red">Шалабудин Мирон<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Авершин Андрей<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">20</td>
+                            <td class="pair-red">Тихонов Илья<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Кубаныбеков Даурон<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">21</td>
+                            <td class="pair-red">Нелюбин Тимофей<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Аббасов Анри<span class="pair-club">КР Боксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">22</td>
+                            <td class="pair-red">Авдигапаров Уларбек<span class="pair-club">Внииссок</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Новахов Яков<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">23</td>
+                            <td class="pair-red">Черток Александр<span class="pair-club">Ильинский СОШ</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Сизов Захар<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">24</td>
+                            <td class="pair-red">Царев Артур<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Мкртычян Эрик<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">25</td>
+                            <td class="pair-red">Арсуллоев Рамазан<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Глазков Роман<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">26</td>
+                            <td class="pair-red">Тагиев Мугдат<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Амирбеков Мусай<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">27</td>
+                            <td class="pair-red">Данилов Мирослав<span class="pair-club">КР Боксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Смайлов Рубен<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">28</td>
+                            <td class="pair-red">Жамгарян Ашот<span class="pair-club">Кузница</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Черкасов Андрей<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">29</td>
+                            <td class="pair-red">Чингизов Алихан<span class="pair-club">Бибоксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Марганский Андрей<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">30</td>
+                            <td class="pair-red">Сыроватно Святослав<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Донченко Данила<span class="pair-club">КР Боксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">31</td>
+                            <td class="pair-red">Поляруш Артем<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Белоусов Алексей<span class="pair-club">КР Боксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">32</td>
+                            <td class="pair-red">Томаровский Даниил<span class="pair-club">Бибоксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Асрян Микаэл<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">33</td>
+                            <td class="pair-red">Шахов Артем<span class="pair-club">Кузница</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Гостев Егор<span class="pair-club">Русич</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">34</td>
+                            <td class="pair-red">Мурин Никита<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Акобян Меружан<span class="pair-club">Кузница</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">35</td>
+                            <td class="pair-red">Шукруллозода Мехрбек<span class="pair-club">Внииссок</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Домашевский Богдан<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">36</td>
+                            <td class="pair-red">Муралиев Мурадбек<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Васин Егор<span class="pair-club">Бибоксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">37</td>
+                            <td class="pair-red">Косимов Самир<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Амуров Абдулнаби<span class="pair-club">Пионер</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">38</td>
+                            <td class="pair-red">Турабеков Асадбек<span class="pair-club">Внииссок</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Кулешов Георгий<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">39</td>
+                            <td class="pair-red">Григорян Григор<span class="pair-club">Бибоксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Балахнин Егор<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">40</td>
+                            <td class="pair-red">Сериев Магомет<span class="pair-club">Кузница</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Бывальцев Алексей<span class="pair-club">Бибоксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">41</td>
+                            <td class="pair-red">Хомиков Яхъё<span class="pair-club">Левый хук</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Асатурян Семен<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">42</td>
+                            <td class="pair-red">Секиркин Богдан<span class="pair-club">Внииссок</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Логвинов Ян<span class="pair-club">Бибоксинг</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">43</td>
+                            <td class="pair-red">Назирмитов Рамазан<span class="pair-club">Левый хук</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Дмитриев Егор<span class="pair-club">Внииссок</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">44</td>
+                            <td class="pair-red">Ожерельев Макар<span class="pair-club">Бибоксинг</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Шелапутин Иван<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">45</td>
+                            <td class="pair-red">Бибяков Тимур<span class="pair-club">Русич</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Тураев Мухаммад<span class="pair-club">Левый хук</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">46</td>
+                            <td class="pair-red">Манапов Арсланбек<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Лукашов Артем<span class="pair-club">Зоркий</span></td>
+                        </tr>
+                        <tr>
+                            <td class="pair-num">47</td>
+                            <td class="pair-red">Куракаев Ибрагим<span class="pair-club">Зоркий</span></td>
+                            <td class="pair-vs">VS</td>
+                            <td class="pair-blue">Эмимов Феруз<span class="pair-club">Левый хук</span></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 
 <div class="modal-overlay" id="successModal"> 
     <div class="modal"> 
         <button class="modal-close" onclick="closeModal('successModal')">✕</button> 
@@ -1198,5 +1510,3 @@
 
 </body> 
 </html> 
- 
-
